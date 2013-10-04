@@ -20,7 +20,6 @@
     
     UIBarButtonItem *newButton = [[UIBarButtonItem alloc] initWithTitle:@"Use Feed" style:UIBarButtonItemStylePlain target:self action:@selector(buttonClicked:)];
     self.navigationItem.leftBarButtonItem = newButton;
-
     
 }
 

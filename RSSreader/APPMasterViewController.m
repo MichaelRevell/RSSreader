@@ -27,17 +27,18 @@
     [super viewDidAppear:animated];
     self.textField.text = self.viewController.str;
     
-    self.feeds = [[NSMutableArray alloc] init];
+    [self.feeds removeAllObjects];
     NSURL *url = [NSURL URLWithString:self.textField.text];
     self.parser = [[NSXMLParser alloc] initWithContentsOfURL:url];
     [self.parser setDelegate:self];
     [self.parser setShouldResolveExternalEntities:NO];
     [self.parser parse];
+    [self.tableView reloadData];
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.viewController = [[NewFeedViewController alloc] init];
-    self.textField.text = @"";
+    self.textField.text = @"http://news.yahoo.com/rss/";
     self.viewController.str = self.textField.text;
     UIBarButtonItem *newButton = [[UIBarButtonItem alloc] initWithTitle:@"New Feed" style:UIBarButtonItemStylePlain target:self action:@selector(buttonClicked:)];
     self.navigationItem.leftBarButtonItem = newButton;

@@ -14,5 +14,6 @@
 
 @property (strong, nonatomic) NSString *str;
 
+@property (strong, nonatomic) IBOutlet UILabel *marquee;
 
 @end
